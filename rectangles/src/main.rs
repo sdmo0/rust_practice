@@ -4,6 +4,17 @@ struct Rectangle {
     height: u32,
 }
 
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+
+    fn can_hole(&self, &Rectangle) -> bool{
+        // if (self.height > )
+        return true;
+    }
+}
+
 fn main() {
     let width1 = 30;
     let height1 = 50;
@@ -29,6 +40,11 @@ fn main() {
     );
 
     println!("rect2 is {:#?}", rect2);
+
+    println!(
+        "The area of the rectangle is {} square pixels",
+        rect2.area()
+    );
 }
 
 fn area(width: u32, height: u32) -> u32 {
@@ -41,4 +57,22 @@ fn area1(dimensions: (u32, u32)) -> u32 {
 
 fn area2(rectangle: &Rectangle) -> u32 {
     rectangle.height * rectangle.width
+}
+
+fn first() {
+    let rect1 = Rectangle {
+        width: 30,
+        height: 50,
+    };
+    let rect2 = Rectangle {
+        width: 10,
+        height: 40,
+    };
+    let rect3 = Rectangle {
+        width: 60,
+        height: 45,
+    };
+
+    println!("Can rect1 hold rect2? {}", rect1.can_hold(&rect2));
+    println!("Can rect1 hold rect3? {}", rect1.can_hold(&rect2));
 }
