@@ -9,9 +9,19 @@ impl Rectangle {
         self.width * self.height
     }
 
-    fn can_hole(&self, &Rectangle) -> bool{
-        // if (self.height > )
-        return true;
+    fn can_hold(&self, rect: &Rectangle) -> bool {
+        if self.height > rect.height && self.width > rect.width {
+            return true;
+        }
+
+        return false;
+    }
+
+    fn square(size: u32) -> Rectangle {
+        Rectangle {
+            width: size,
+            height: size,
+        }
     }
 }
 
@@ -45,6 +55,9 @@ fn main() {
         "The area of the rectangle is {} square pixels",
         rect2.area()
     );
+
+    first();
+    third();
 }
 
 fn area(width: u32, height: u32) -> u32 {
@@ -74,5 +87,10 @@ fn first() {
     };
 
     println!("Can rect1 hold rect2? {}", rect1.can_hold(&rect2));
-    println!("Can rect1 hold rect3? {}", rect1.can_hold(&rect2));
+    println!("Can rect1 hold rect3? {}", rect1.can_hold(&rect3));
+}
+
+fn third() {
+    let sq = Rectangle::square(3);
+    println!("height {}", sq.height);
 }
